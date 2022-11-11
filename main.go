@@ -2,13 +2,18 @@ package main
 
 import (
 	"fmt"
+	"github.com/gorilla/mux"
 	"net/http"
 )
 
-func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Welcome to the Internet! Please follow me.\n")
-	})
+func setDefaultHeaders(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "helloooooooo")
+}
 
-	http.ListenAndServe(":8000", nil)
+func main() {
+	fmt.Println("helloooooo")
+	r := mux.NewRouter()
+
+	r.HandleFunc("/", setDefaultHeaders)
+	http.ListenAndServe(":8000", r)
 }
