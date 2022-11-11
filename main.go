@@ -15,5 +15,5 @@ func main() {
 		fmt.Fprintf(w, "Hello %s\n", name)
 	})
 
-	http.ListenAndServeTLS(":9990", "cert.pem", "key.pem", nil)
+	http.ListenAndServeTLS(":9990", "cert.crt", "tls.pem", nil)
 }
