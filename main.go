@@ -22,7 +22,6 @@
 package main
 
 import (
-	"log"
 	"net/http"
 )
 
@@ -35,10 +34,5 @@ func HelloSSLServer(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", HelloSSLServer)
-	go http.ListenAndServe("85.193.95.12:80", nil)
-	err := http.ListenAndServeTLS("localhost:9990", "/etc/ssl/digitalshop-evgenick-com.crt", "/etc/ssl/digitalshop-evgenick-com.key", nil)
-
-	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
-	}
+	http.ListenAndServeTLS("localhost:9990", "/etc/ssl/digitalshop-evgenick-com.crt", "/etc/ssl/digitalshop-evgenick-com.key", nil)
 }
