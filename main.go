@@ -15,7 +15,7 @@ func main() {
 		fmt.Fprintf(w, "Hello %s\n", name)
 	})
 
-	http.ListenAndServeTLS(":9990", "/etc/nginx/ssl/evgenick.pem", "/etc/nginx/ssl/evgenick.key", nil)
+	http.ListenAndServeTLS(":9990", "/etc/ssl/digitalshop-evgenick-com.crt", "/etc/ssl/digitalshop-evgenick-com.key", nil)
 }
 
 //package main
